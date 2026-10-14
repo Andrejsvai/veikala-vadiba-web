@@ -8,6 +8,8 @@ This repo is separate from the Laravel app (`Veikala-Vadiba`).
 
 **GitHub Pages:** [https://andrejsvai.github.io/veikala-vadiba-web/](https://andrejsvai.github.io/veikala-vadiba-web/)
 
+Built assets are published on the `gh-pages` branch. `.github/workflows/deploy-pages.yml` is also present for Actions-based deploys.
+
 ## Local development
 
 ```bash
@@ -27,7 +29,9 @@ npm run preview
 - Vite + React + TypeScript
 - Tailwind CSS v4
 - i18n strings in `src/i18n.ts` (locale stored in `localStorage`)
+- Production build externalizes React to esm.sh for a small Pages bundle
 
 ## Deploy
 
-Push to `main` runs `.github/workflows/deploy-pages.yml` (GitHub Pages via Actions).
+- **Live:** `gh-pages` branch → https://andrejsvai.github.io/veikala-vadiba-web/
+- **Optional Actions:** push to `main` runs `.github/workflows/deploy-pages.yml` (requires Pages source = GitHub Actions)
