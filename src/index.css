@@ -1,0 +1,171 @@
+@import 'tailwindcss';
+
+:root {
+  --ink: #071f1c;
+  --ink-soft: #0b3d36;
+  --moss: #1f6b5c;
+  --mist: #d7ebe4;
+  --paper: #f3f7f4;
+  --cream: #eef4f0;
+  --amber: #d97706;
+  --amber-soft: #f59e0b;
+  --muted: #5a726c;
+  --line: rgba(11, 61, 54, 0.12);
+  --glow: rgba(31, 107, 92, 0.35);
+  font-family: 'Figtree', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--paper);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: 'Syne', 'Figtree', system-ui, sans-serif;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(2%, -3%, 0) scale(1.05);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-atmosphere {
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(31, 107, 92, 0.45), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 15%, rgba(217, 119, 6, 0.18), transparent 50%),
+    radial-gradient(ellipse 90% 70% at 50% 100%, rgba(7, 31, 28, 0.55), transparent 60%),
+    linear-gradient(160deg, #06241f 0%, #0b3d36 42%, #124a40 72%, #0a2e29 100%);
+}
+
+.hero-grain {
+  background-image:
+    linear-gradient(rgba(243, 247, 244, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(243, 247, 244, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 85%);
+}
+
+.blob {
+  animation: drift 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+.blob-delayed {
+  animation-delay: -5s;
+}
+
+.rise {
+  animation: rise 0.9s ease-out both;
+}
+
+.rise-2 {
+  animation-delay: 0.12s;
+}
+
+.rise-3 {
+  animation-delay: 0.24s;
+}
+
+.rise-4 {
+  animation-delay: 0.36s;
+}
+
+.cta-sheen {
+  background: linear-gradient(
+    110deg,
+    var(--amber) 0%,
+    var(--amber-soft) 40%,
+    #fbbf24 55%,
+    var(--amber) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 4.5s linear infinite;
+}
+
+.feature-grid > article {
+  animation: rise 0.7s ease-out both;
+}
+
+.feature-grid > article:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.feature-grid > article:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.feature-grid > article:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.feature-grid > article:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.feature-grid > article:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.feature-grid > article:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.feature-grid > article:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.feature-grid > article:nth-child(8) {
+  animation-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob,
+  .cta-sheen,
+  .rise,
+  .rise-2,
+  .rise-3,
+  .rise-4,
+  .feature-grid > article {
+    animation: none;
+  }
+}
