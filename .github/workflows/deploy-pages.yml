@@ -9,6 +9,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read
 
 concurrency:
   group: pages
@@ -25,7 +26,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
       - name: Install
         run: npm install
@@ -34,7 +34,22 @@ jobs:
         run: npm run build
 
       - name: Setup Pages
+        id: pages
         uses: actions/configure-pages@v5
+        continue-on-error: true
+
+      - name: Ensure Pages site exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          if gh api "repos/${GITHUB_REPOSITORY}/pages" >/dev/null 2>&1; then
+            echo "Pages already configured"
+            gh api -X PUT "repos/${GITHUB_REPOSITORY}/pages" -f build_type=workflow || true
+          else
+            echo "Creating Pages site (workflow build)"
+            gh api -X POST "repos/${GITHUB_REPOSITORY}/pages" -f build_type=workflow || true
+          fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
