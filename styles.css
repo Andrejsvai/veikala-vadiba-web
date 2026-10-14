@@ -1,0 +1,294 @@
+:root {
+  --ink: #071f1c;
+  --ink-soft: #0b3d36;
+  --moss: #1f6b5c;
+  --paper: #f3f7f4;
+  --cream: #eef4f0;
+  --amber: #d97706;
+  --amber-soft: #f59e0b;
+  --muted: #5a726c;
+  --line: rgba(11, 61, 54, 0.12);
+  font-family: Figtree, system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--paper);
+}
+
+.font-display,
+h1,
+h2,
+h3,
+.eyebrow,
+.footer-brand,
+.features article strong {
+  font-family: Syne, Figtree, system-ui, sans-serif;
+}
+
+.wrap {
+  width: min(1120px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.top {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.25rem 1.5rem;
+}
+
+.lang {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.lang button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font: 600 0.75rem Figtree, system-ui, sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.75);
+  background: transparent;
+}
+
+.lang button[aria-pressed='true'] {
+  background: #fff;
+  color: var(--ink-soft);
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  color: var(--cream);
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(31, 107, 92, 0.45), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 15%, rgba(217, 119, 6, 0.18), transparent 50%),
+    radial-gradient(ellipse 90% 70% at 50% 100%, rgba(7, 31, 28, 0.55), transparent 60%),
+    linear-gradient(160deg, #06241f 0%, #0b3d36 42%, #124a40 72%, #0a2e29 100%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(243, 247, 244, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(243, 247, 244, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 85%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  width: min(1120px, calc(100% - 2.5rem));
+  margin: 0 auto;
+  padding: 7rem 0 5rem;
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(243, 247, 244, 0.72);
+}
+
+h1 {
+  margin: 1.25rem 0 0;
+  max-width: 16ch;
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.tagline {
+  margin: 1.5rem 0 0;
+  max-width: 28rem;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 500;
+  color: rgba(243, 247, 244, 0.92);
+}
+
+.support {
+  margin: 1rem 0 0;
+  max-width: 32rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(215, 235, 228, 0.78);
+}
+
+.cta {
+  margin-top: 2.5rem;
+  align-self: flex-start;
+  border: 0;
+  border-radius: 0.375rem;
+  padding: 0.9rem 1.75rem;
+  font: 700 0.875rem Figtree, system-ui, sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: not-allowed;
+  background: linear-gradient(110deg, var(--amber), var(--amber-soft), #fbbf24, var(--amber));
+  background-size: 200% 100%;
+  box-shadow: 0 12px 40px rgba(217, 119, 6, 0.28);
+  animation: shimmer 4.5s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 100% 0;
+  }
+}
+
+.section {
+  border-top: 1px solid var(--line);
+  padding: 5rem 0;
+}
+
+.section h2 {
+  margin: 0;
+  max-width: 20ch;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.section-support {
+  margin: 0.75rem 0 0;
+  max-width: 40rem;
+  font-size: 1.125rem;
+  color: var(--muted);
+}
+
+.features {
+  display: grid;
+  gap: 2.5rem 2rem;
+  margin-top: 3.5rem;
+}
+
+@media (min-width: 640px) {
+  .features {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 960px) {
+  .features {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.features article {
+  border-top: 1px solid var(--line);
+  padding-top: 1.25rem;
+}
+
+.features .num {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--moss);
+}
+
+.features h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.features p {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.audience {
+  background: linear-gradient(180deg, #e8f2ee 0%, #f3f7f4 100%);
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  background: var(--ink);
+  color: var(--cream);
+  padding: 2.5rem 0;
+}
+
+.footer-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .footer-row {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.footer-brand {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.footer-note {
+  margin: 0.5rem 0 0;
+  max-width: 28rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.footer-cta {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--amber-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta {
+    animation: none;
+  }
+}
