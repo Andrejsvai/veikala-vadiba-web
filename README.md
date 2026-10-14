@@ -1,37 +1,27 @@
 # Veikala Vadība — landing
 
-Public marketing landing for **Veikala Vadība** (shop & warehouse management). EN + LV, CTA is **Coming soon** only — no demo link, no signup form.
+Vienkārša **HTML / CSS / JS** marketing lapa. Nav Node, nav build — ieliec failus uz servera un gatavs (kā ar statiskiem failiem).
 
-This repo is separate from the Laravel app (`Veikala-Vadiba`).
+## Faili (augšupielādē šos)
 
-## Live site
+- `index.html`
+- `styles.css`
+- `script.js`
+- `favicon.svg`
 
-**GitHub Pages:** [https://andrejsvai.github.io/veikala-vadiba-web/](https://andrejsvai.github.io/veikala-vadiba-web/)
+Ieliec tos web mapē (`public_html`, `www`, nginx root u.c.) un atver domēnu.
 
-Built assets are published on the `gh-pages` branch. `.github/workflows/deploy-pages.yml` is also present for Actions-based deploys.
+## Live (GitHub Pages)
 
-## Local development
+https://andrejsvai.github.io/veikala-vadiba-web/
 
-```bash
-npm install
-npm run dev
-```
+## Lokāli
 
-Dev server defaults to [http://127.0.0.1:43127/veikala-vadiba-web/](http://127.0.0.1:43127/veikala-vadiba-web/) (`base` matches Pages path).
+Atver `index.html` pārlūkā vai jebkurš vienkāršs static serveris — piem. Plesk / Apache / nginx.
 
-```bash
-npm run build
-npm run preview
-```
+## Saturs
 
-## Stack
-
-- Vite + React + TypeScript
-- Tailwind CSS v4
-- i18n strings in `src/i18n.ts` (locale stored in `localStorage`)
-- Production build externalizes React to esm.sh for a small Pages bundle
-
-## Deploy
-
-- **Live:** `gh-pages` branch → https://andrejsvai.github.io/veikala-vadiba-web/
-- **Optional Actions:** push to `main` runs `.github/workflows/deploy-pages.yml` (requires Pages source = GitHub Actions)
+- Brand-first hero **Veikala Vadība**
+- EN | LV pārslēgs (`localStorage`)
+- CTA **Coming soon** (nav formas, nav demo)
+- 8 funkcijas + auditorija + footer
